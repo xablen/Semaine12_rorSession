@@ -20,4 +20,13 @@ class UsersController < ApplicationController
   		redirect_to "/users/login"
   	end
   end
+
+  def destroy
+		@current_user = User.find(session[:user_id])
+		if @current_user
+		    @current_user.destroy
+		    flash[:info] = "Vous avez bien été déconnecté"
+		end
+		  redirect_to "/users/home"
+	end
 end
