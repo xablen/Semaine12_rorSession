@@ -1,8 +1,10 @@
 <% if @current_user %>
-	<h1>Bienvenue <%= @current_user.name %> !</h1>
-<% else %>
-	<h1>Bienvenue visiteur anonyme !</h1>
-	<a href="/users/login">S'identifier</a>
-<% end %>
-
-<%= link_to "Déconnection", :controller => 'users',:action => 'destroy' %>
+	<% if @current_user %>
+		<% if @current_user.role == "admin" %>
+		<h1>Bienvenue maître <%= @current_user.name %> !</h1>
+	<% else %>
+		<h1>Bienvenue visiteur <%= @current_user.name %> !</h1>
+	<% else %>	
+	    <h1>Bienvenue visiteur anonyme !</h1>
+		<a href="/users/login">S'identifier</a>
+	<% end %>
