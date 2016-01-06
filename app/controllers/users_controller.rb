@@ -20,4 +20,10 @@ class UsersController < ApplicationController
   		redirect_to "/users/login"
   	end
   end
+
+def delogin
+    session[:user_id] = nil
+    redirect_to "/users/home"
+  end
+
 end

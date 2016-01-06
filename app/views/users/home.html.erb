@@ -1,10 +1,12 @@
 <% if @current_user %>
-	<% if @current_user %>
 		<% if @current_user.role == "admin" %>
 		<h1>Bienvenue maître <%= @current_user.name %> !</h1>
 	<% else %>
 		<h1>Bienvenue visiteur <%= @current_user.name %> !</h1>
+	<% end %>		
 	<% else %>	
 	    <h1>Bienvenue visiteur anonyme !</h1>
 		<a href="/users/login">S'identifier</a>
 	<% end %>
+
+<a href="/users/delogin">Se déconnecter</a>
